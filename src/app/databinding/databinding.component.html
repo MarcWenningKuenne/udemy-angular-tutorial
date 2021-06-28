@@ -1,2 +1,16 @@
+<h4>String Interpolation</h4>
 {{ aString }}
 {{ aNumber }}
+<p>{{ aString }}</p>
+<div>
+    <input type="text" value="{{aNumber}}">
+</div>
+<hr>
+<h4>Property Binding</h4>
+<p [innerText]="aString"></p>
+<div>
+    <input type="text" [value]="aNumber">
+</div>
+<div [ngClass]="{'red-border': attachClass}" [ngStyle]="{'background-color': attachColor}">
+    Text
+</div>
