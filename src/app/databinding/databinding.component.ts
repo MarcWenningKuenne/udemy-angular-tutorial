@@ -23,4 +23,9 @@ export class DatabindingComponent{
       this.attachColor = 'blue';
     },3000)
   }
+
+  onClick(event: Event){
+    alert('Geklickt!');
+    console.log(event);
+  }
 }
