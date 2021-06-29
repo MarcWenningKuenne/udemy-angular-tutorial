@@ -5,6 +5,7 @@ import {
   AfterViewInit, 
   Component, 
   DoCheck, 
+  Input, 
   OnChanges, 
   OnDestroy, 
   OnInit, 
@@ -14,9 +15,7 @@ import {
 @Component({
   selector: 'app-lifecycle',
   template: `
-    <p>
-      lifecycle works!
-    </p>
+    <div>{{ name }}</div>
   `,
   styles: [
   ]
@@ -31,10 +30,14 @@ export class LifecycleComponent implements
   AfterViewChecked,
   OnDestroy {
 
+  @Input() name!: string;
+
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges){
     console.log('OnChanges');
+    console.log(changes['name'].previousValue);
+    console.log(changes['name'].currentValue);
   }
 
   ngOnInit(): void {
