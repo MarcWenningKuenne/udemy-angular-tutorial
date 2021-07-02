@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Ingredient } from 'src/app/shared/ingredient.model';
 import { Recipe } from "../recipe.model";
 
 @Component({
@@ -8,7 +9,14 @@ import { Recipe } from "../recipe.model";
   ]
 })
 export class RecipeListComponent implements OnInit {
-  recipe = new Recipe('Dummy', 'Dummy', 'https://media.fortniteapi.io/images/51d30a24ab77d09644e0db6a9ea14ddc/transparent.png')
+  recipes: Recipe[] = [
+    new Recipe('Schnitzel', 'Sehr lecker', 'https://www.gutekueche.at/storage/media/recipe/8028/conv/wiener-schnitzel-default.jpg',
+    [
+      new Ingredient('Pommes', 10),
+      new Ingredient('Schnitzel', 1)
+    ] ),
+    new Recipe('Salat', 'auch lecker', 'https://images.lecker.de/,id=4dba2952,b=lecker,w=610,cg=c.jpg', [])
+  ] 
   @Output() recipeSelected = new EventEmitter<Recipe>();
   selectedRecipe!: Recipe;
   
